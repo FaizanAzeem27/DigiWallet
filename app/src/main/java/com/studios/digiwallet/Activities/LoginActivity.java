@@ -1,11 +1,8 @@
 package com.studios.digiwallet.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,8 +12,11 @@ import com.studios.digiwallet.Models.User;
 import com.studios.digiwallet.MyApplication;
 import com.studios.digiwallet.R;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import static com.studios.digiwallet.MyApplication.activeUser;
 import static com.studios.digiwallet.MyApplication.refresh;
+import static com.studios.digiwallet.MyApplication.statusBarColor;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -29,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         init();
         listeners();
+        statusBarColor(this);
     }
 
     private void init(){

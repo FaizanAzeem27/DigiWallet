@@ -1,8 +1,5 @@
 package com.studios.digiwallet.Activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
@@ -22,9 +19,14 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import static com.studios.digiwallet.MyApplication.activeUser;
 import static com.studios.digiwallet.MyApplication.firebase;
 import static com.studios.digiwallet.MyApplication.sdf;
+import static com.studios.digiwallet.MyApplication.statusBarColor;
 
 public class DepositMoneyActivity extends AppCompatActivity {
 
@@ -36,9 +38,13 @@ public class DepositMoneyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deposit_money);
         init();
+        statusBarColor(this);
     }
 
     private void init(){
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar10);
+        setSupportActionBar(myToolbar);
+        setTitle("");
         etCard = findViewById(R.id.etCard_DepositMoney);
         etName = findViewById(R.id.etName_DepositMoney);
         etExpiry = findViewById(R.id.etExpiry_DepositMoney);

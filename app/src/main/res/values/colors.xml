@@ -6,4 +6,6 @@
     <color name="Dark_Green">#065800</color>
     <color name="Red">#FF0000</color>
     <color name="Green">#4CAF50</color>
+    <color name="my_statusbar_color">#64AF64</color>
+    <color name="my_toolbar_color">#96F096</color>
 </resources>

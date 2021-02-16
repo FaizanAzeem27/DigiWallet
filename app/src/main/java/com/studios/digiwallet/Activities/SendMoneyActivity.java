@@ -1,14 +1,17 @@
 package com.studios.digiwallet.Activities;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.studios.digiwallet.R;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import static com.studios.digiwallet.MyApplication.statusBarColor;
 
 public class SendMoneyActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -18,9 +21,13 @@ public class SendMoneyActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_money);
         init();
+        statusBarColor(this);
     }
 
     private void init(){
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar4);
+        setSupportActionBar(myToolbar);
+        setTitle("");
         llOptions = new LinearLayout[]{findViewById(R.id.llOption1_SendMoney), findViewById(R.id.llOption2_SendMoney)};
         llOptions[0].setTag("Mobile");
         llOptions[1].setTag("Bank");

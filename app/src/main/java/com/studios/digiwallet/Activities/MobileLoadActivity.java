@@ -1,8 +1,5 @@
 package com.studios.digiwallet.Activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
@@ -11,7 +8,6 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.text.style.TtsSpan;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -27,9 +23,14 @@ import com.studios.digiwallet.R;
 import java.sql.Timestamp;
 import java.util.HashMap;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import static com.studios.digiwallet.MyApplication.activeUser;
 import static com.studios.digiwallet.MyApplication.firebase;
 import static com.studios.digiwallet.MyApplication.sdf;
+import static com.studios.digiwallet.MyApplication.statusBarColor;
 
 public class MobileLoadActivity extends AppCompatActivity {
 
@@ -45,9 +46,13 @@ public class MobileLoadActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mobile_load);
         init();
         listeners();
+        statusBarColor(this);
     }
 
     private void init(){
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar7);
+        setSupportActionBar(myToolbar);
+        setTitle("");
         snrNetworks = findViewById(R.id.snrNetworks_MobileLoad);
         etNumber = findViewById(R.id.etNumber_MobileLoad);
         etAmount = findViewById(R.id.etAmount_MobileLoad);

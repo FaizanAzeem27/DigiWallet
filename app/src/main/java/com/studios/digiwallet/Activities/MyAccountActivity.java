@@ -1,11 +1,7 @@
 package com.studios.digiwallet.Activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.text.InputType;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
@@ -19,10 +15,13 @@ import com.google.android.gms.tasks.Task;
 import com.studios.digiwallet.Models.User;
 import com.studios.digiwallet.R;
 
-import java.util.HashMap;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import static com.studios.digiwallet.MyApplication.activeUser;
 import static com.studios.digiwallet.MyApplication.firebase;
+import static com.studios.digiwallet.MyApplication.statusBarColor;
 
 public class MyAccountActivity extends AppCompatActivity {
 
@@ -36,10 +35,14 @@ public class MyAccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_account);
         init();
         listeners();
+        statusBarColor(this);
     }
 
     @SuppressLint("SetTextI18n")
     private void init(){
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar6);
+        setSupportActionBar(myToolbar);
+        setTitle("");
         etFName = findViewById(R.id.etFirstName_MyAccount);
         etFName.setText(activeUser.fName);
         etLName = findViewById(R.id.etLastName_MyAccount);
@@ -104,30 +107,53 @@ public class MyAccountActivity extends AppCompatActivity {
     }
 
     private void update() {
-        HashMap<String, String> users = new HashMap<>();
-        users.put("FName", etFName.getText().toString());
-        users.put("LName", etLName.getText().toString());
-        users.put("Email", activeUser.email);
-        users.put("Phone", activeUser.phone);
-        users.put("CNIC", activeUser.cnic);
+        String p, fn, ln;
         if(!etNewPass.getText().toString().equals(""))
-            users.put("Password", etNewPass.getText().toString());
+            p = etNewPass.getText().toString();
         else
-            users.put("Password", etPass.getText().toString());
-        users.put("Balance", activeUser.balance+"");
-        
-        firebase.child(User.encodeUserEmail(activeUser.email)+"-"+activeUser.cnic).setValue(users)
+            p = etPass.getText().toString();
+        fn = etFName.getText().toString();
+        ln = etLName.getText().toString();
+        if(!fn.equals(activeUser.fName))
+            firebase.child(User.encodeUserEmail(activeUser.email)+"-"+activeUser.cnic).child("FName").setValue(fn)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(MyAccountActivity.this, "Information Updated Successfully", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MyAccountActivity.this, "First Name Updated Successfully", Toast.LENGTH_SHORT).show();
                         }
                         else{
                             Toast.makeText(MyAccountActivity.this, "Error Updating", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
+        if(!ln.equals(activeUser.lName))
+            firebase.child(User.encodeUserEmail(activeUser.email)+"-"+activeUser.cnic).child("LName").setValue(ln)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(MyAccountActivity.this, "Last Name Updated Successfully", Toast.LENGTH_SHORT).show();
+                            }
+                            else{
+                                Toast.makeText(MyAccountActivity.this, "Error Updating", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+        if(!p.equals(activeUser.pass))
+            firebase.child(User.encodeUserEmail(activeUser.email)+"-"+activeUser.cnic).child("Password").setValue(p)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(MyAccountActivity.this, "Password Updated Successfully", Toast.LENGTH_SHORT).show();
+                            }
+                            else{
+                                Toast.makeText(MyAccountActivity.this, "Error Updating", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+
     }
 
     private boolean isEmpty() {

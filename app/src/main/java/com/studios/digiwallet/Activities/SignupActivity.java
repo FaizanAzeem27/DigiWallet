@@ -1,13 +1,9 @@
 package com.studios.digiwallet.Activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -22,7 +18,12 @@ import com.studios.digiwallet.R;
 
 import java.util.HashMap;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import static com.studios.digiwallet.MyApplication.firebase;
+import static com.studios.digiwallet.MyApplication.statusBarColor;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -35,9 +36,13 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
         init();
         listeners();
+        statusBarColor(this);
     }
 
     private void init(){
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+        setTitle("");
         etFName = findViewById(R.id.etFirstName_Signup);
         etLName = findViewById(R.id.etLastName_Signup);
         etEmail = findViewById(R.id.etEmail_Signup);

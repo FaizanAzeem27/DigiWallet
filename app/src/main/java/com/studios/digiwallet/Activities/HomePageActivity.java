@@ -1,8 +1,5 @@
 package com.studios.digiwallet.Activities;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +12,12 @@ import android.widget.Toast;
 
 import com.studios.digiwallet.R;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import static com.studios.digiwallet.MyApplication.activeUser;
+import static com.studios.digiwallet.MyApplication.statusBarColor;
 
 public class HomePageActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -46,10 +48,14 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
             finish();
         }
         init();
+        statusBarColor(this);
     }
 
     @SuppressLint("SetTextI18n")
     private void init(){
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar8);
+        setSupportActionBar(myToolbar);
+        setTitle("");
         tvName= findViewById(R.id.tvName_Homepage);
         tvName.setOnClickListener(this);
         tvName.setTag(10);

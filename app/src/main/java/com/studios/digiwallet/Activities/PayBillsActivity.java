@@ -1,8 +1,5 @@
 package com.studios.digiwallet.Activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
@@ -25,9 +22,14 @@ import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Random;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import static com.studios.digiwallet.MyApplication.activeUser;
 import static com.studios.digiwallet.MyApplication.firebase;
 import static com.studios.digiwallet.MyApplication.sdf;
+import static com.studios.digiwallet.MyApplication.statusBarColor;
 
 public class PayBillsActivity extends AppCompatActivity {
 
@@ -42,9 +44,13 @@ public class PayBillsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pay_bills);
         init();
         listeners();
+        statusBarColor(this);
     }
 
     private void init(){
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar5);
+        setSupportActionBar(myToolbar);
+        setTitle("");
         tvName = findViewById(R.id.tvName_PayBills);
         snrServices = findViewById(R.id.snrServices_PayBills);
         etAmount = findViewById(R.id.etAmount_PayBills);

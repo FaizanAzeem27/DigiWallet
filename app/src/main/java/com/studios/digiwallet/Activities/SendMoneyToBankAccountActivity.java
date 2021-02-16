@@ -1,8 +1,5 @@
 package com.studios.digiwallet.Activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
@@ -27,11 +24,14 @@ import com.studios.digiwallet.R;
 import java.sql.Timestamp;
 import java.util.HashMap;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import static com.studios.digiwallet.MyApplication.activeUser;
-import static com.studios.digiwallet.MyApplication.allUsers;
 import static com.studios.digiwallet.MyApplication.firebase;
-import static com.studios.digiwallet.MyApplication.refresh;
 import static com.studios.digiwallet.MyApplication.sdf;
+import static com.studios.digiwallet.MyApplication.statusBarColor;
 
 public class SendMoneyToBankAccountActivity extends AppCompatActivity {
 
@@ -45,9 +45,14 @@ public class SendMoneyToBankAccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_money_to_bank_account);
         init();
+        statusBarColor(this);
     }
 
     private void init(){
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar3);
+        setSupportActionBar(myToolbar);
+        setTitle("");
+
         etNumber = findViewById(R.id.etNumber_SendMoneyToBankAccount);
 
         tvName = findViewById(R.id.tvName_SendMoneyToBankAccount);
