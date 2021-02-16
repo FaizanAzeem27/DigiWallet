@@ -149,7 +149,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:hint="Email"
-                            android:inputType="phone" />
+                            android:inputType="textEmailAddress" />
 
                     </LinearLayout>
 
@@ -167,7 +167,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:hint="Enter Password"
-                            android:inputType="phone" />
+                            android:inputType="text" />
 
                     </LinearLayout>
 
@@ -185,7 +185,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:hint="Confirm Password"
-                            android:inputType="phone" />
+                            android:inputType="text" />
 
                     </LinearLayout>
 
