@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +21,7 @@ import static com.studios.digiwallet.MyApplication.refresh;
 public class LoginActivity extends AppCompatActivity {
 
     EditText etEmail, etPassword;
-    Button btnLogin;
+    ImageView btnLogin;
     TextView tvSignUp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

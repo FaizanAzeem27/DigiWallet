@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,7 +27,7 @@ import static com.studios.digiwallet.MyApplication.firebase;
 public class SignupActivity extends AppCompatActivity {
 
     EditText etFName, etLName, etCNIC, etEmail, etPhone, etPassword, etCPassword;
-    Button btnSignup;
+    ImageView btnSignup;
     CheckBox cbxTerms;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

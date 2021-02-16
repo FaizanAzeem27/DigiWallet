@@ -7,129 +7,210 @@
     android:orientation="vertical"
     tools:context=".Activities.SignupActivity">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
-        android:fontFamily="sans-serif-condensed-light"
-        android:text="Sign up"
-        android:textSize="36sp"
-        android:textStyle="bold|italic" />
-
-    <TextView
-        android:id="@+id/textView5"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="2dp"
-        android:text="Please fill in this form to create an account!" />
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/etFirstName_Signup"
-            android:layout_width="193dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="First Name"
-            android:inputType="textPersonName" />
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/etLastName_Signup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="3dp"
-            android:ems="10"
-            android:hint="Last Name"
-            android:inputType="textPersonName" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp">
 
-    </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/llTitle_Signup"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/etCNIC_Signup"
-        android:layout_width="285dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="3dp"
-        android:ems="10"
-        android:hint="CNIC"
-        android:inputType="number" />
+                    <ImageView
+                        android:id="@+id/imvTitle_Signup"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/ic_baseline_person_add_24" />
 
-    <EditText
-        android:id="@+id/etPhone_Signup"
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="3dp"
-        android:ems="10"
-        android:hint="Phone Number"
-        android:inputType="phone" />
+                    <TextView
+                        android:id="@+id/tvTitle_Signup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="Sign Up"
+                        android:textSize="25sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-    <EditText
-        android:id="@+id/etEmail_Signup"
-        android:layout_width="283dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="3dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp">
 
-    <EditText
-        android:id="@+id/etPassword_Signup"
-        android:layout_width="282dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="3dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/etConfirmPassword_Signup"
-        android:layout_width="283dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="3dp"
-        android:ems="10"
-        android:hint="Confirm Password"
-        android:inputType="textPassword" />
+                    <TextView
+                        android:id="@+id/tvName_Signup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="Please fill in this form to create an account!"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+                        android:textSize="18sp"
+                        android:visibility="visible" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="3dp"
-        android:text="I accept the Terms of use and Privacy Policy." />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
 
-    <Button
-        android:id="@+id/btnSignup_Signup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="3dp"
-        android:text="sign up" />
+                        <EditText
+                            android:id="@+id/etFirstName_Signup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="First Name"
+                            android:inputType="textPersonName" />
+
+                        <EditText
+                            android:id="@+id/etLastName_Signup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_weight="1"
+                            android:hint="Last Name"
+                            android:inputType="textPersonName" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <EditText
+                            android:id="@+id/etCNIC_Signup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="CNIC"
+                            android:inputType="phone" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <EditText
+                            android:id="@+id/etPhone_Signup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="Phone Number"
+                            android:inputType="phone" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <EditText
+                            android:id="@+id/etEmail_Signup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="Email"
+                            android:inputType="phone" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <EditText
+                            android:id="@+id/etPassword_Signup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="Enter Password"
+                            android:inputType="phone" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <EditText
+                            android:id="@+id/etConfirmPassword_Signup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="Confirm Password"
+                            android:inputType="phone" />
+
+                    </LinearLayout>
+
+                    <CheckBox
+                        android:id="@+id/checkBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="3dp"
+                        android:text="I accept the Terms of use and Privacy Policy." />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/btnSignup_Signup"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="20dp"
+                app:srcCompat="@drawable/ic_baseline_send_24" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
