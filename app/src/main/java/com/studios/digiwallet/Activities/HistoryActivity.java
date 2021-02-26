@@ -6,11 +6,14 @@ import com.studios.digiwallet.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import static com.studios.digiwallet.MyApplication.statusBarColor;
 
 public class HistoryActivity extends AppCompatActivity {
 
+    RecyclerView rv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,5 +26,11 @@ public class HistoryActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar9);
         setSupportActionBar(myToolbar);
         setTitle("");
+
+        rv = findViewById(R.id.rvTransactions_History);
+        rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setHasFixedSize(true);
+
+
     }
 }
